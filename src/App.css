@@ -12,10 +12,11 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 4em yellow);
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+:nth-child(2 of .logo):hover {
+  filter: drop-shadow(0 0 4em green);
 }
 
 @keyframes logo-spin {
@@ -27,16 +28,21 @@
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes logo-spin-inverted {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }
 
-.card {
-  padding: 2em;
-}
+@media (prefers-reduced-motion: no-preference) {
+   :nth-child(1 of .logo) {
+    animation: logo-spin infinite 5s linear;
+  }
 
-.read-the-docs {
-  color: #888;
+   :nth-child(2 of .logo) {
+    animation: logo-spin-inverted infinite 2.5s linear;
+  }
 }
