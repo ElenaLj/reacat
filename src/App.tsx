@@ -48,7 +48,7 @@ function App() {
 
 function Card() {
   const catsList = cats.map(cat =>
-    <li>
+    <li className='card'>
       <div className="card bg-base-100 w-96 shadow-sm">
         <div className="card-body">
           <h2 className="card-title">{cat.name}, {cat.age}</h2>
