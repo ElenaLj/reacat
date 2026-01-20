@@ -33,13 +33,25 @@ type Cat = {
 
 
 export function Card() {
-    const [showDetails, setShowDetails] = useState(false);
-
+    
+    const [showDetails, setShowDetails] = useState(-1);
+    const [buttonClicked, setButtonClicked] = useState(false)
     const catsList = cats.map(cat =>
+        
         <li key={cat.id}>
-            <button onClick={() => setShowDetails(!showDetails)}>Show details</button>
+
+        <button onClick={() => {
+            cats.map(gatito => {
+                if(cat.id === gatito.id) {
+                  
+                    setShowDetails(gatito.id);
+                    setButtonClicked(!buttonClicked);
+                } 
+            })
+            }
+            }>Show details</button>
             <div className="card bg-base-100 w-96 shadow-sm" >
-                {showDetails && <div className="card-body">
+                {showDetails === cat.id && <div className="card-body">
                     <h2 className="card-title">{cat.name}</h2>
                     <p>{cat.desc}</p>
                 </div>}
@@ -49,7 +61,14 @@ export function Card() {
                         alt={cat.name} />
                 </figure>
             </div>
+
+
+
         </li>
-    )
+
+
+
+)
+
     return catsList
 }
