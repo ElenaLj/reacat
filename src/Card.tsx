@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Heart } from 'lucide-react'
 
 const cats: Cat = [
     {
@@ -19,6 +20,15 @@ const cats: Cat = [
         desc: "lorem ipsum Milly",
         image: "https://cdn2.thecatapi.com/images/7cn.jpg"
     },
+       {
+        id: 2,
+        name: "Cannella",
+        gender: "F",
+        age: 2,
+        colour: "grigio",
+        desc: "lorem ipsum Cannella",
+        image: "https://cdn2.thecatapi.com/images/7an.jpg"
+    },
 ];
 
 type Cat = {
@@ -35,40 +45,34 @@ type Cat = {
 export function Card() {
     
     const [showDetails, setShowDetails] = useState(-1);
-    const [buttonClicked, setButtonClicked] = useState(false)
-    const catsList = cats.map(cat =>
-        
-        <li key={cat.id}>
+    const [heartReaction, setHeartReaction] = useState(false);
 
-        <button onClick={() => {
-            cats.map(gatito => {
-                if(cat.id === gatito.id) {
-                  
-                    setShowDetails(gatito.id);
-                    setButtonClicked(!buttonClicked);
-                } 
-            })
-            }
-            }>Show details</button>
-            <div className="card bg-base-100 w-96 shadow-sm" >
-                {showDetails === cat.id && <div className="card-body">
-                    <h2 className="card-title">{cat.name}</h2>
-                    <p>{cat.desc}</p>
-                </div>}
+    const catsList = cats.map(cat =>
+        <li key={cat.id}>     
+            <div className="card bg-mint-100 w-96 shadow-sm" >
+                <button onClick={() => {
+                    setHeartReaction(false)
+                cats.map(gatito => {
+                    if(cat.id === gatito.id) {
+                        setShowDetails(gatito.id);
+                    } 
+                })}}>Show details</button>
                 <figure>
                     <img
                         src={cat.image}
                         alt={cat.name} />
                 </figure>
+                {showDetails === cat.id && <div className="card-body">
+                    <h2 className="card-title">{cat.name}</h2>
+                    <p>{cat.desc}</p>
+                    {
+                    <Heart fill={heartReaction ? "red" : "none"} onClick={() => 
+                        setHeartReaction(!heartReaction)
+                    }/>
+                    }
+                </div>}
             </div>
-
-
-
         </li>
-
-
-
 )
-
     return catsList
 }

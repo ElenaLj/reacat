@@ -1,16 +1,18 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
-
-.card-container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+@theme {
+  --color-mint-50: oklch(0.9619 0.01875 180);
+  --color-mint-100: oklch(0.9111 0.045312500000000006 180);
+  --color-mint-200: oklch(0.8418 0.08281250000000001 180);
+  --color-mint-300: oklch(0.8418 0.08281250000000001 180);
+  --color-mint-400: oklch(0.6826 0.16562500000000002 180);
+  --color-mint-500: oklch(0.72 0.11 178);
+  --color-mint-600: oklch(0.5908 0.14375000000000004 180);
+  --color-mint-700: oklch(0.5039 0.12343750000000003 180);
+  --color-mint-800: oklch(0.4805 0.11718750000000003 180);
+  --color-mint-900:oklch(0.4385 0.10781250000000003 180);
+  --color-mint-950: oklch(0.3945 0.09687500000000002 180);
 }
 
 li {
