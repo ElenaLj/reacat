@@ -1,4 +1,6 @@
-export function Card({cat, isActive, onButtonClick}) {
+import { Heart } from "lucide-react";
+
+export function Card({cat, isActive, onButtonClick, heart, onHeartClick}) {
     return <>
         <div className="card bg-mint-100 w-96 shadow-sm" >
             <button onClick={onButtonClick}>Show details</button>
@@ -11,9 +13,7 @@ export function Card({cat, isActive, onButtonClick}) {
                         <h2 className="card-title">{cat.name}</h2>
                         <p>{cat.desc}</p>
                         {
-                        // <Heart fill={heartReaction ? "red" : "none"} onClick={() => 
-                        //     setHeartReaction(!heartReaction)
-                        // }/>
+                        <Heart fill={heart ? "red" : "none"} onClick={onHeartClick}/>
                         } 
                     </div>}
                 

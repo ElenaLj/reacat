@@ -8,16 +8,21 @@ export function Dashboard(){
 
     const catsList = cats.map(cat =>
         <li key={cat.id}> 
-            <div className="columns-3 p-8 flex justify-evenly">
-                <Card cat={cat} isActive={active} onButtonClick={() => setActiveIndex(cat.id)}/>
-            </div>
+            <Card 
+                cat={cat} 
+                isActive={active} 
+                onButtonClick={() => clickShowDetails(cat)}
+                heart={heartReaction}
+                onHeartClick={() => setHeartReaction(!heartReaction)}
+                />
         </li>
     )
     
 
+    function clickShowDetails(cat){
+        setActiveIndex(cat.id);
+        setHeartReaction(false)
+    }
     return catsList    
 }
 
-// ritorniamo sulla logichina merdina di prima che usiamo gli indicini 
-// come tipo di dato e non il booleanino merdino che può essere solo accesso
-// o spento. CHIARO?
