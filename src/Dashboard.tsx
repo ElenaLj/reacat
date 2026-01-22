@@ -1,28 +1,27 @@
 import { useState } from "react";
 import { Card } from "./Card";
-import { cats } from "./Cats";
+import { cards } from "./Cards";
 
 export function Dashboard(){
     const [active, setActiveIndex] = useState(-1);
     const [heartReaction, setHeartReaction] = useState(false);
-
-    const catsList = cats.map(cat =>
-        <li key={cat.id}> 
+    const bgColour = [1,2,3,4,5,6,7,8];
+    const list = cards.map(card =>
+        <ul key={card.id}> 
             <Card 
-                cat={cat} 
-                isActive={active} 
-                onButtonClick={() => clickShowDetails(cat)}
+                card={card} 
+                active={active} 
+                onButtonClick={() => clickShowDetails(card)}
                 heart={heartReaction}
                 onHeartClick={() => setHeartReaction(!heartReaction)}
+                randomBgColour={bgColour[card.id]}
                 />
-        </li>
+        </ul>
     )
     
-
-    function clickShowDetails(cat){
-        setActiveIndex(cat.id);
-        setHeartReaction(false)
+    function clickShowDetails(card){ 
+        setActiveIndex(a => a === card.id ? -1 : card.id)
     }
-    return catsList    
-}
 
+    return list    
+}
