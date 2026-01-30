@@ -1,15 +1,13 @@
 
 import './App.css';
+import { Searchbar } from './Searchbar';
 import { Dashboard } from './Dashboard';
+import { Fab } from './Fab'
+import { useState } from 'react';
+import { Card } from './Card';
 
-function App() {
-  return (
-   <>
-      <div className="columns-3 p-8 flex flex-wrap justify-evenly gap-x-2 bg-mint-600">
-      <Dashboard/>
-      </div>
-   </>
-  )
+function App({ cards }) {
+  return <Dashboard/>
 }
 
 export default App
